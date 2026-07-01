@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Зубная паста в таблетках — сравнение и рейтинг</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #0D0F0E;
+    --surface: #161917;
+    --surface-2: #1E2220;
+    --line: #2A2F2C;
+    --mint: #6EE7B7;
+    --mint-dim: #3B7A63;
+    --foam: #E8F5EE;
+    --text: #ECEEEB;
+    --muted: #97A199;
+    --gold: #E8C468;
+    --silver: #C9CDD3;
+    --bronze: #C88A5A;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:
+      radial-gradient(1200px 600px at 15% -10%, rgba(110,231,183,0.08), transparent 60%),
+      radial-gradient(900px 500px at 90% 0%, rgba(232,196,104,0.05), transparent 55%),
+      var(--bg);
+    color:var(--text);
+    font-family:'Inter', sans-serif;
+    font-size:18px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1080px; margin:0 auto; padding:0 28px;}
+  h1,h2,h3{font-family:'Fraunces', serif; font-weight:600; letter-spacing:-0.01em;}
+  .eyebrow{
+    font-family:'Space Grotesk', sans-serif;
+    text-transform:uppercase; letter-spacing:0.18em; font-size:13px;
+    color:var(--mint); font-weight:600;
+  }
+
+  /* HERO */
+  .hero{padding:110px 0 80px; border-bottom:1px solid var(--line); position:relative;}
+  .hero h1{font-size:clamp(38px, 6vw, 64px); line-height:1.05; margin:18px 0 22px; max-width:820px;}
+  .hero p.lead{font-size:21px; color:var(--muted); max-width:640px; margin-bottom:36px;}
+  .hero-tags{display:flex; gap:12px; flex-wrap:wrap;}
+  .tag{
+    font-family:'Space Grotesk', sans-serif; font-size:14px; font-weight:500;
+    border:1px solid var(--line); border-radius:100px; padding:8px 16px;
+    color:var(--muted); background:var(--surface);
+  }
+
+  /* SECTION HEADERS */
+  section{padding:70px 0; border-bottom:1px solid var(--line);}
+  .sec-head{margin-bottom:44px;}
+  .sec-head h2{font-size:clamp(28px,4vw,40px); margin-top:10px;}
+  .sec-head p{color:var(--muted); font-size:18px; max-width:680px; margin-top:14px;}
+
+  /* FACT-CHECK BOX */
+  .verdict-box{
+    background:var(--surface); border:1px solid var(--line); border-radius:18px;
+    padding:32px 34px; display:flex; gap:22px; align-items:flex-start;
+  }
+  .verdict-icon{
+    flex-shrink:0; width:46px; height:46px; border-radius:50%;
+    background:linear-gradient(145deg, var(--mint), var(--mint-dim));
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Space Grotesk',sans-serif; font-weight:700; color:#0D0F0E; font-size:20px;
+  }
+  .verdict-box h3{font-size:22px; margin-bottom:10px; color:var(--foam);}
+  .verdict-box ul{margin-top:14px; padding-left:20px; color:var(--muted); font-size:16.5px;}
+  .verdict-box li{margin-bottom:8px;}
+  .verdict-box li b{color:var(--text); font-weight:600;}
+  .verdict-box .ok{color:var(--mint);}
+  .verdict-box .fix{color:var(--gold);}
+
+  /* HOW IT WORKS */
+  .steps{display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:8px;}
+  .step{background:var(--surface); border:1px solid var(--line); border-radius:16px; padding:26px;}
+  .step .num{font-family:'Space Grotesk',sans-serif; color:var(--mint); font-weight:700; font-size:15px; letter-spacing:0.08em;}
+  .step p{margin-top:12px; color:var(--muted); font-size:16.5px;}
+  .step h4{font-family:'Space Grotesk',sans-serif; font-size:18px; margin-top:6px; color:var(--text);}
+
+  .why-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:8px;}
+  .why-card{background:var(--surface); border:1px solid var(--line); border-radius:16px; padding:24px;}
+  .why-card h4{font-family:'Space Grotesk',sans-serif; font-size:17px; margin-bottom:8px; color:var(--mint);}
+  .why-card p{color:var(--muted); font-size:15.5px;}
+
+  /* PRODUCT CARDS */
+  .product{
+    background:var(--surface); border:1px solid var(--line); border-radius:22px;
+    padding:40px; margin-bottom:32px; position:relative; overflow:hidden;
+  }
+  .product::before{
+    content:""; position:absolute; top:0; left:0; width:6px; height:100%;
+    background:linear-gradient(180deg, var(--mint), transparent);
+  }
+  .rank-pill{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:13px;
+    letter-spacing:0.06em; text-transform:uppercase;
+    padding:7px 14px; border-radius:100px; margin-bottom:18px;
+  }
+  .rank-1{background:rgba(232,196,104,0.14); color:var(--gold); border:1px solid rgba(232,196,104,0.35);}
+  .rank-2{background:rgba(201,205,211,0.12); color:var(--silver); border:1px solid rgba(201,205,211,0.3);}
+  .rank-3{background:rgba(200,138,90,0.14); color:var(--bronze); border:1px solid rgba(200,138,90,0.32);}
+
+  .product-top{display:flex; justify-content:space-between; align-items:flex-start; gap:24px; flex-wrap:wrap;}
+  .product h3{font-size:32px; margin-bottom:6px;}
+  .product .origin{color:var(--muted); font-size:15px; font-family:'Space Grotesk',sans-serif;}
+  .stars{font-size:20px; letter-spacing:2px; color:var(--gold); white-space:nowrap;}
+
+  .photo-row{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:28px 0;}
+  .photo-slot{
+    aspect-ratio:4/3; border-radius:16px; border:2px dashed var(--line);
+    background:var(--surface-2);
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    color:var(--muted); font-family:'Space Grotesk',sans-serif; font-size:14px; gap:8px;
+    text-align:center; padding:10px;
+  }
+  .photo-slot svg{opacity:0.4;}
+
+  .product-body{display:grid; grid-template-columns:1.3fr 1fr; gap:36px; margin-top:8px;}
+  .product-body h5{font-family:'Space Grotesk',sans-serif; font-size:14px; text-transform:uppercase; letter-spacing:0.08em; color:var(--mint); margin-bottom:10px; margin-top:22px;}
+  .product-body h5:first-child{margin-top:0;}
+  .product-body p{color:var(--muted); font-size:16px;}
+  .composition{font-size:15px; color:var(--muted); line-height:1.7;}
+
+  .pc-grid{display:grid; grid-template-columns:1fr 1fr; gap:18px;}
+  .pc-box{background:var(--surface-2); border-radius:14px; padding:18px 20px;}
+  .pc-box.plus{border-left:3px solid var(--mint);}
+  .pc-box.minus{border-left:3px solid #C97A6E;}
+  .pc-box h6{font-family:'Space Grotesk',sans-serif; font-size:13px; text-transform:uppercase; letter-spacing:0.06em; margin-bottom:10px;}
+  .pc-box.plus h6{color:var(--mint);}
+  .pc-box.minus h6{color:#C97A6E;}
+  .pc-box ul{padding-left:18px; font-size:15px; color:var(--muted);}
+  .pc-box li{margin-bottom:6px;}
+
+  .note-fix{
+    margin-top:22px; background:rgba(232,196,104,0.08); border:1px solid rgba(232,196,104,0.25);
+    border-radius:12px; padding:14px 18px; font-size:14.5px; color:var(--gold);
+  }
+  .note-fix b{color:var(--gold);}
+
+  /* COMPARISON TABLE */
+  table{width:100%; border-collapse:collapse; margin-top:10px; font-size:16px;}
+  th,td{padding:16px 14px; text-align:left; border-bottom:1px solid var(--line);}
+  th{font-family:'Space Grotesk',sans-serif; text-transform:uppercase; font-size:12.5px; letter-spacing:0.06em; color:var(--muted); font-weight:600;}
+  td{color:var(--text);}
+  tr td:first-child{color:var(--muted); font-family:'Space Grotesk',sans-serif; font-size:14.5px;}
+  .table-wrap{background:var(--surface); border:1px solid var(--line); border-radius:18px; padding:10px 26px; overflow-x:auto;}
+
+  /* PODIUM */
+  .podium{display:grid; grid-template-columns:1fr 1fr 1fr; gap:18px; align-items:end; margin-top:20px;}
+  .pod-card{border-radius:18px; padding:28px 22px; text-align:center; border:1px solid var(--line);}
+  .pod-1{background:linear-gradient(160deg, rgba(232,196,104,0.14), var(--surface)); order:2; padding-top:40px;}
+  .pod-2{background:linear-gradient(160deg, rgba(201,205,211,0.10), var(--surface)); order:1;}
+  .pod-3{background:linear-gradient(160deg, rgba(200,138,90,0.12), var(--surface)); order:3;}
+  .pod-medal{font-size:34px; margin-bottom:10px;}
+  .pod-card h4{font-family:'Space Grotesk',sans-serif; font-size:19px; margin-bottom:6px;}
+  .pod-card p{color:var(--muted); font-size:14px;}
+
+  /* FOOTER */
+  footer{padding:50px 0 70px; text-align:center; color:var(--muted); font-size:14.5px;}
+
+  @media (max-width:760px){
+    .product-body{grid-template-columns:1fr;}
+    .pc-grid{grid-template-columns:1fr;}
+    .steps, .why-grid{grid-template-columns:1fr;}
+    .podium{grid-template-columns:1fr; }
+    .pod-1,.pod-2,.pod-3{order:0; padding-top:28px;}
+    .hero{padding:80px 0 60px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <section class="hero">
+    <span class="eyebrow">Travel Kit · Гигиена в дороге</span>
+    <h1>Зубная паста в таблетках: что это и какая — лучшая</h1>
+    <p class="lead">Разбор формата, принципа действия и трёх брендов, которые чаще всего рекомендуют путешественникам — с проверкой состава и фактов по каждому.</p>
+    <div class="hero-tags">
+      <span class="tag">Без жидкостей в багаже</span>
+      <span class="tag">Разрешено в ручной клади</span>
+      <span class="tag">Компактно</span>
+      <span class="tag">Точная дозировка</span>
+    </div>
+  </section>
+
+  <section id="what">
+    <div class="sec-head">
+      <span class="eyebrow">01 · Что это</span>
+      <h2>Твёрдая паста вместо тюбика</h2>
+      <p>Зубная паста в таблетках — спрессованная форма обычной пасты. Логика использования не меняется: разжевать → почистить влажной щёткой → таблетка превращается в привычную пену.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <span class="num">01</span>
+        <h4>Разжевать</h4>
+        <p>Таблетка кладётся в рот и разжёвывается несколько секунд до состояния порошка или мягкой массы.</p>
+      </div>
+      <div class="step">
+        <span class="num">02</span>
+        <h4>Смочить щётку</h4>
+        <p>Влажная зубная щётка активирует смесь — при контакте с водой и слюной появляется пена.</p>
+      </div>
+      <div class="step">
+        <span class="num">03</span>
+        <h4>Почистить как обычно</h4>
+        <p>Дальше — привычная чистка 2 минуты. Абразивы, фтор или гидроксиапатит и ароматизаторы работают так же, как в тюбике.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="why">
+    <div class="sec-head">
+      <span class="eyebrow">02 · Зачем это в поездке</span>
+      <h2>Формат, созданный для чемодана</h2>
+      <p>Изначально таблетки задумывались как экологичная альтернатива пластиковому тюбику, но главную популярность им принесли путешественники и цифровые кочевники.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card"><h4>Не жидкость</h4><p>Не подпадает под авиаправило 100 мл — можно провозить в любом количестве в ручной клади.</p></div>
+      <div class="why-card"><h4>Не протекает</h4><p>Тюбик может лопнуть или потечь в сумке. С таблетками этой проблемы физически нет.</p></div>
+      <div class="why-card"><h4>Точная доза</h4><p>Одна таблетка = одна чистка. Нет перерасхода и нет ситуации «выдавил слишком много».</p></div>
+      <div class="why-card"><h4>Компактность</h4><p>Упаковка на месяц (~60 таблеток) весит порядка 40–70 г и помещается в мини-контейнер или EDC-набор.</p></div>
+      <div class="why-card"><h4>Меньше пластика</h4><p>Большинство брендов используют стекло, алюминий или компостируемую бумагу вместо тюбика.</p></div>
+      <div class="why-card"><h4>Универсальность</h4><p>Одинаково удобно для перелётов, кемпинга, яхтинга и повседневного EDC.</p></div>
+    </div>
+  </section>
+
+  <section id="factcheck">
+    <div class="sec-head">
+      <span class="eyebrow">03 · Проверка фактов</span>
+      <h2>Что подтвердилось, а что — поправили</h2>
+      <p>Составы и позиционирование брендов сверены с официальными сайтами производителей и независимыми обзорами. Ниже — правки к исходному списку.</p>
+    </div>
+    <div class="verdict-box">
+      <div class="verdict-icon">✓</div>
+      <div>
+        <h3>Итог проверки</h3>
+        <ul>
+          <li><span class="ok">Подтверждено:</span> все три бренда реальны, активно продаются и действительно ориентированы на travel-сегмент.</li>
+          <li><span class="ok">Подтверждено:</span> <b>Bite</b> — премиальный американский бренд с версией на нано-гидроксиапатите (базовая формула) и отдельной линейкой с фтором.</li>
+          <li><span class="fix">Исправлено:</span> <b>Huppy фтора не содержит вообще</b> — ни в одной версии. Действующее вещество — 10% нано-гидроксиапатит. В исходном тексте это было указано неверно («есть версии с фтором»).</li>
+          <li><span class="fix">Уточнено:</span> <b>Unpaste</b> — немецкий бренд (не американский), один из первых в США предложивший таблетки именно с фтором; подсластитель — стевия, а не ксилитол, что делает их менее опасными при случайном проглатывании животными.</li>
+          <li><span class="ok">Подтверждено:</span> общий рейтинг «Bite → Huppy → Unpaste» по соотношению премиальности и цены соответствует независимым обзорам и отзывам пользователей.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="products">
+    <div class="sec-head">
+      <span class="eyebrow">04 · Разбор брендов</span>
+      <h2>Три варианта, которые стоит рассмотреть</h2>
+      <p>Под каждую позицию — два слота для ваших фото продукта. Просто замените блок <code>.photo-slot</code> на тег <code>&lt;img src="..."&gt;</code> с вашим файлом.</p>
+    </div>
+
+    <!-- BITE -->
+    <div class="product">
+      <div class="rank-pill rank-1">🥇 Лучший в целом</div>
+      <div class="product-top">
+        <div>
+          <h3>Bite Toothpaste Bits</h3>
+          <div class="origin">США · премиальный сегмент</div>
+        </div>
+        <div class="stars">★★★★★</div>
+      </div>
+
+      <div class="photo-row">
+        <div class="photo-slot">
+          <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10.5" r="1.5"/><path d="M21 15l-5-5L5 19"/></svg>
+          Фото Bite — 1
+        </div>
+        <div class="photo-slot">
+          <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10.5" r="1.5"/><path d="M21 15l-5-5L5 19"/></svg>
+          Фото Bite — 2
+        </div>
+      </div>
+
+      <div class="product-body">
+        <div>
+          <h5>Состав (без фтора)</h5>
+          <p class="composition">Эритритол, ксилитол, карбонат кальция, нано-гидроксиапатит, бикарбонат натрия, гуаровая камедь, цинка цитрат, диоксид кремния, ментол. Версия с фтором использует монофторфосфат натрия 0,76%.</p>
+          <h5>Почему в топе</h5>
+          <p>Один из самых узнаваемых брендов сегмента (выходил на Shark Tank), более 20 000 отзывов с рейтингом 5★. Формула без SLS и пластика, банка — многоразовая алюминиевая.</p>
+        </div>
+        <div>
+          <h5>Формат</h5>
+          <p class="composition">62 таблетки = ~1 месяц чистки дважды в день. Срок годности — 1,5–2 года. Одобрено для провоза в ручной клади (TSA).</p>
+        </div>
+      </div>
+
+      <div class="pc-grid" style="margin-top:22px;">
+        <div class="pc-box plus">
+          <h6>Плюсы</h6>
+          <ul><li>Сильная репутация и большой объём отзывов</li><li>Есть версия с фтором и без</li><li>Многоразовая упаковка</li></ul>
+        </div>
+        <div class="pc-box minus">
+          <h6>Минусы</h6>
+          <ul><li>Выше по цене, чем аналоги</li><li>Непривычная текстура для новичков</li></ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- HUPPY -->
+    <div class="product">
+      <div class="rank-pill rank-2">🥈 Лучшее соотношение цена/качество</div>
+      <div class="product-top">
+        <div>
+          <h3>Huppy Toothpaste Tablets</h3>
+          <div class="origin">США · zero-waste сегмент</div>
+        </div>
+        <div class="stars">★★★★★</div>
+      </div>
+
+      <div class="photo-row">
+        <div class="photo-slot">
+          <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10.5" r="1.5"/><path d="M21 15l-5-5L5 19"/></svg>
+          Фото Huppy — 1
+        </div>
+        <div class="photo-slot">
+          <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10.5" r="1.5"/><path d="M21 15l-5-5L5 19"/></svg>
+          Фото Huppy — 2
+        </div>
+      </div>
+
+      <div class="product-body">
+        <div>
+          <h5>Состав</h5>
+          <p class="composition">Ксилитол, бикарбонат натрия, карбонат кальция, 10% нано-гидроксиапатит, кокосовое ПАВ, цитрат цинка, эфирные масла мяты и чайного дерева. Полностью без фтора, без SLS, без глютена.</p>
+          <h5>Почему в топе</h5>
+          <p>Один из самых сбалансированных вариантов по цене и экологичности: компостируемая упаковка, алюминиевая банка для многоразового использования, 10%-я концентрация гидроксиапатита — выше, чем у многих конкурентов.</p>
+        </div>
+        <div>
+          <h5>Формат</h5>
+          <p class="composition">62 таблетки в упаковке (~1 месяц). Полностью fluoride-free — важно учитывать, если нужен именно фтор.</p>
+        </div>
+      </div>
+
+      <div class="pc-grid" style="margin-top:22px;">
+        <div class="pc-box plus">
+          <h6>Плюсы</h6>
+          <ul><li>Удобны в дороге, компостируемая упаковка</li><li>Высокая концентрация гидроксиапатита (10%)</li><li>Доступнее Bite по цене</li></ul>
+        </div>
+        <div class="pc-box minus">
+          <h6>Минусы</h6>
+          <ul><li>Фтора нет ни в одной версии</li><li>У части пользователей — мягкий вкус</li></ul>
+        </div>
+      </div>
+      <div class="note-fix">Поправка к исходному тексту: у Huppy <b>нет</b> версии с фтором — только нано-гидроксиапатит.</div>
+    </div>
+
+    <!-- UNPASTE -->
+    <div class="product">
+      <div class="rank-pill rank-3">🥉 Бюджетный вариант</div>
+      <div class="product-top">
+        <div>
+          <h3>Unpaste Tooth Tabs</h3>
+          <div class="origin">Германия · один из первых игроков рынка</div>
+        </div>
+        <div class="stars">★★★★</div>
+      </div>
+
+      <div class="photo-row">
+        <div class="photo-slot">
+          <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10.5" r="1.5"/><path d="M21 15l-5-5L5 19"/></svg>
+          Фото Unpaste — 1
+        </div>
+        <div class="photo-slot">
+          <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10.5" r="1.5"/><path d="M21 15l-5-5L5 19"/></svg>
+          Фото Unpaste — 2
+        </div>
+      </div>
+
+      <div class="product-body">
+        <div>
+          <h5>Состав</h5>
+          <p class="composition">Основа + эфирные масла: коричный лист (аромат «cinnamon») или полевая мята (аромат «mint»). Подсластитель — стевия, а не ксилитол. Есть версия с фтором и без.</p>
+          <h5>Почему в топе</h5>
+          <p>Один из первых брендов, предложивших таблетки с фтором на рынке США, хотя сам бренд родом из Германии. Хорошо переносит поездки в рюкзаке, компостируемая упаковка на соевых чернилах.</p>
+        </div>
+        <div>
+          <h5>Формат</h5>
+          <p class="composition">Вкус держится менее стойко, чем у Huppy, по отзывам пользователей. Стевия вместо ксилитола — плюс, если рядом животные (ксилитол токсичен для собак).</p>
+        </div>
+      </div>
+
+      <div class="pc-grid" style="margin-top:22px;">
+        <div class="pc-box plus">
+          <h6>Плюсы</h6>
+          <ul><li>Самая низкая цена в подборке</li><li>Есть версия с фтором</li><li>Безопасен для животных (стевия, не ксилитол)</li></ul>
+        </div>
+        <div class="pc-box minus">
+          <h6>Минусы</h6>
+          <ul><li>Менее стойкий вкус</li><li>Проще упаковка, менее премиальный вид</li></ul>
+        </div>
+      </div>
+      <div class="note-fix">Поправка к исходному тексту: Unpaste — немецкий, а не американский бренд.</div>
+    </div>
+  </section>
+
+  <section id="compare">
+    <div class="sec-head">
+      <span class="eyebrow">05 · Сравнение</span>
+      <h2>Все три бренда рядом</h2>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Параметр</th><th>Bite</th><th>Huppy</th><th>Unpaste</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Репутация</td><td>★★★★★</td><td>★★★★★</td><td>★★★★</td></tr>
+          <tr><td>Для путешествий</td><td>★★★★★</td><td>★★★★★</td><td>★★★★</td></tr>
+          <tr><td>Экологичность</td><td>★★★★★</td><td>★★★★★</td><td>★★★★</td></tr>
+          <tr><td>Активное вещество</td><td>nHAp / фтор (2 версии)</td><td>10% nHAp</td><td>фтор / без фтора</td></tr>
+          <tr><td>Подсластитель</td><td>ксилитол, эритритол</td><td>ксилитол</td><td>стевия</td></tr>
+          <tr><td>Цена</td><td>$$$</td><td>$$</td><td>$</td></tr>
+          <tr><td>Страна</td><td>США</td><td>США</td><td>Германия</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="result" style="border-bottom:none;">
+    <div class="sec-head">
+      <span class="eyebrow">06 · Итог</span>
+      <h2>Итоговый рейтинг</h2>
+      <p>Для частых перелётов и продуманного travel-набора все три варианта — рабочие. Разница в цене, наличии фтора и уровне премиальности упаковки.</p>
+    </div>
+    <div class="podium">
+      <div class="pod-card pod-2">
+        <div class="pod-medal">🥈</div>
+        <h4>Huppy</h4>
+        <p>Лучшее соотношение цена / качество</p>
+      </div>
+      <div class="pod-card pod-1">
+        <div class="pod-medal">🥇</div>
+        <h4>Bite</h4>
+        <p>Лучший вариант в целом</p>
+      </div>
+      <div class="pod-card pod-3">
+        <div class="pod-medal">🥉</div>
+        <h4>Unpaste</h4>
+        <p>Лучший бюджетный вариант</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer>
+  Составы и позиционирование сверены с официальными сайтами Bite, Huppy, Unpaste и независимыми обзорами · Июль 2026
+</footer>
+
+</body>
+</html>
